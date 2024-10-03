@@ -120,7 +120,7 @@ input[type="text"]:focus,
 /* Star hint styling */
 .star {
     position: absolute;
-    font-size: 2000px; /* Increased star size */
+    font-size: 150px; /* Increased star size */
     animation: float 3s ease-in-out infinite;
     transition: transform 0.5s, color 0.5s;
     pointer-events: auto;
