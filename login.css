@@ -31,22 +31,26 @@ body {
 @media (max-width: 600px) {
     #login-container {
         width: 90%; /* Use a percentage width for smaller screens */
-        padding: 20px; /* Reduce padding */
+        padding: 15px; /* Reduce padding */
     }
 
     input[type="text"] {
-        font-size: 14px; /* Smaller font size */
+        font-size: 8px; /* 60% smaller font size */
     }
 
     #loginButton {
-        padding: 10px 20px; /* Adjust button size */
-        font-size: 14px; /* Adjust button font size */
+        padding: 8px 15px; /* Adjust button size */
+        font-size: 8px; /* 60% smaller button font size */
+    }
+
+    .error-message {
+        font-size: 8px; /* 60% smaller error message font */
     }
 }
 
 input[type="text"] {
     padding: 12px;
-    font-size: 20px; /* Larger font size */
+    font-size: 20px; /* Default larger font size */
     border: 2px solid #ccc; /* Make the border thicker */
     border-radius: 5px;
     width: 100%; /* Take up full width of container */
@@ -71,12 +75,6 @@ input[type="text"] {
     background-color: #ff1493;
 }
 
-.error-message {
-    color: red;
-    margin-top: 10px;
-    font-size: 14px; /* Smaller font */
-}
-
 /* Make input box and button stand out with focus */
 input[type="text"]:focus,
 #loginButton:focus {
@@ -87,7 +85,7 @@ input[type="text"]:focus,
 /* Star hint styling */
 .star {
     position: absolute;
-    font-size: 20px; /* Smaller size of stars */
+    font-size: 8px; /* Smaller size of stars (60% smaller) */
     animation: float 3s ease-in-out infinite; /* Float animation */
     transition: transform 0.5s, color 0.5s; /* Smooth transition for movement and glow */
     pointer-events: auto; /* Allow hover effects */
@@ -114,10 +112,10 @@ input[type="text"]:focus,
 .hint {
     display: none; /* Initially hidden */
     position: absolute;
-    font-size: 10px; /* Smaller font size for hint text */
+    font-size: 6px; /* Smaller font size for hint text (60% smaller) */
     color: black; /* Hint text color */
-    top: 25px; /* Adjusted position of hint text */
-    left: -20px; /* Center the text in the star */
+    top: 20px; /* Adjusted position of hint text */
+    left: -15px; /* Center the text in the star */
     white-space: nowrap; /* Prevent line breaks */
     z-index: 2; /* Ensure hint text is above star */
 }
