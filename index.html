@@ -145,40 +145,42 @@
     </div>
 
     <script>
-        // Password and hints setup
-        const passwords = {
-            "pillow": "What do I have your contact saved as? (Faaleha ___)",
-            "goose": "You're a silly ___",
-            "kohinoor": "What jewel/diamond do I associate/used to associate with you?"
-        };
+        document.addEventListener("DOMContentLoaded", function () {
+            // Password and hints setup
+            const passwords = {
+                "pillow": "What do I have your contact saved as? (Faaleha ___)",
+                "goose": "You're a silly ___",
+                "kohinoor": "What jewel/diamond do I associate/used to associate with you?"
+            };
 
-        // Check password input
-        const passwordInput = document.getElementById("passwordInput");
-        const errorMessage = document.getElementById("errorMessage");
-        const loginButton = document.getElementById("loginButton");
+            // Check password input
+            const passwordInput = document.getElementById("passwordInput");
+            const errorMessage = document.getElementById("errorMessage");
+            const loginButton = document.getElementById("loginButton");
 
-        loginButton.addEventListener("click", (event) => {
-            event.preventDefault(); // Prevent form submission
-            validatePassword();
-        });
-        passwordInput.addEventListener("keypress", (e) => {
-            if (e.key === "Enter") {
-                e.preventDefault(); // Prevent form submission
+            loginButton.addEventListener("click", (event) => {
+                event.preventDefault(); // Prevent form submission
                 validatePassword();
+            });
+            passwordInput.addEventListener("keypress", (e) => {
+                if (e.key === "Enter") {
+                    e.preventDefault(); // Prevent form submission
+                    validatePassword();
+                }
+            });
+
+            function validatePassword() {
+                const inputPassword = passwordInput.value.toLowerCase(); // Convert input to lowercase
+                console.log("Input Password:", inputPassword); // Log input for debugging
+                if (passwords.hasOwnProperty(inputPassword)) {
+                    alert("Password is correct!");
+                    window.location.href = "mainmenu.html"; // Redirect on correct password
+                } else {
+                    errorMessage.textContent = "Incorrect password! Try again.";
+                    passwordInput.value = ''; // Clear input after incorrect attempt
+                }
             }
         });
-
-        function validatePassword() {
-            const inputPassword = passwordInput.value.toLowerCase(); // Convert input to lowercase
-            console.log("Input Password:", inputPassword); // Log input for debugging
-            if (passwords.hasOwnProperty(inputPassword)) {
-                alert("Password is correct!");
-                window.location.href = "mainmenu.html"; // Redirect on correct password
-            } else {
-                errorMessage.textContent = "Incorrect password! Try again.";
-                passwordInput.value = ''; // Clear input after incorrect attempt
-            }
-        }
     </script>
 </body>
 </html>
