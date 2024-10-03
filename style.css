@@ -102,6 +102,7 @@ body {
     cursor: pointer;
 }
 
+/* Increase slider visibility on hover */
 #volumeSlider:hover {
     opacity: 1;
 }
@@ -111,8 +112,35 @@ body {
     opacity: 1;
 }
 
-/* Slider Hover Effect */
-.audio-controls:hover #volumeSlider {
-    width: 120px; /* Increase the slider width */
-    opacity: 1;
+/* Mobile Styles */
+@media (max-width: 600px) {
+    /* Adjust button sizes and layout for smaller screens */
+    #button-container {
+        flex-direction: column; /* Stack buttons vertically */
+        align-items: center; /* Center buttons */
+    }
+
+    .nav-button {
+        width: 80%; /* Full width for buttons */
+        font-size: 18px; /* Slightly smaller font size */
+        padding: 10px; /* Adjust padding */
+    }
+
+    #moment-section {
+        margin-top: 10px; /* Reduce margin for mobile */
+    }
+
+    #timer {
+        font-size: 1.2em; /* Smaller timer font size */
+    }
+
+    .audio-controls {
+        bottom: 10px; /* Adjust position for mobile */
+        right: 10px; /* Adjust position for mobile */
+    }
+
+    #muteButton {
+        padding: 10px; /* Adjust button size for mobile */
+        font-size: 20px; /* Smaller font size for mobile */
+    }
 }

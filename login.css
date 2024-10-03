@@ -26,6 +26,23 @@ body {
     z-index: 1; /* Ensure the container is above stars */
 }
 
+/* Responsive container for mobile devices */
+@media (max-width: 600px) {
+    #login-container {
+        width: 80%; /* Use a percentage width for smaller screens */
+        padding: 20px; /* Reduce padding */
+    }
+
+    input[type="text"] {
+        font-size: 18px; /* Slightly smaller font size */
+    }
+
+    #loginButton {
+        padding: 10px 20px; /* Adjust button size */
+        font-size: 18px; /* Adjust button font size */
+    }
+}
+
 input[type="text"] {
     padding: 12px;
     font-size: 20px; /* Larger font size */
