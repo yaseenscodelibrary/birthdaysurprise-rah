@@ -24,33 +24,50 @@ body {
     align-items: center;
     position: relative; /* For positioning stars */
     z-index: 1; /* Ensure the container is above stars */
-    margin: auto; /* Center the container */
 }
 
-/* Responsive container for mobile devices */
-@media (max-width: 600px) {
+/* Responsive container for mobile devices and tablets */
+@media (max-width: 768px) {
     #login-container {
-        width: 90%; /* Use a percentage width for smaller screens */
-        padding: 15px; /* Reduce padding */
+        width: 80%; /* Use a percentage width for smaller screens */
+        padding: 20px; /* Reduce padding */
     }
 
     input[type="text"] {
-        font-size: 8px; /* 60% smaller font size */
+        font-size: 12px; /* Smaller font size */
     }
 
     #loginButton {
-        padding: 8px 15px; /* Adjust button size */
-        font-size: 8px; /* 60% smaller button font size */
+        padding: 8px 16px; /* Smaller button size */
+        font-size: 12px; /* Smaller font size for button */
+    }
+}
+
+/* Adjust for very small screens */
+@media (max-width: 480px) {
+    input[type="text"] {
+        font-size: 10px; /* Smaller font size */
     }
 
-    .error-message {
-        font-size: 8px; /* 60% smaller error message font */
+    #loginButton {
+        padding: 6px 12px; /* Smaller button size */
+        font-size: 10px; /* Smaller font size for button */
+    }
+
+    .star {
+        font-size: 30px; /* Make stars smaller */
+    }
+
+    .hint {
+        font-size: 10px; /* Smaller hint font size */
+        top: 10px; /* Position the hint text closer */
+        left: -20px; /* Center the text in the star */
     }
 }
 
 input[type="text"] {
     padding: 12px;
-    font-size: 20px; /* Default larger font size */
+    font-size: 20px; /* Larger font size */
     border: 2px solid #ccc; /* Make the border thicker */
     border-radius: 5px;
     width: 100%; /* Take up full width of container */
@@ -75,6 +92,12 @@ input[type="text"] {
     background-color: #ff1493;
 }
 
+.error-message {
+    color: red;
+    margin-top: 10px;
+    font-size: 16px; /* Slightly larger font */
+}
+
 /* Make input box and button stand out with focus */
 input[type="text"]:focus,
 #loginButton:focus {
@@ -85,7 +108,7 @@ input[type="text"]:focus,
 /* Star hint styling */
 .star {
     position: absolute;
-    font-size: 8px; /* Smaller size of stars (60% smaller) */
+    font-size: 50px; /* Initial size of stars */
     animation: float 3s ease-in-out infinite; /* Float animation */
     transition: transform 0.5s, color 0.5s; /* Smooth transition for movement and glow */
     pointer-events: auto; /* Allow hover effects */
@@ -102,7 +125,7 @@ input[type="text"]:focus,
 }
 
 .star:hover {
-    transform: scale(1.5); /* Enlarge on hover */
+    transform: scale(2); /* Enlarge on hover */
     color: rgba(255, 255, 0, 1); /* Change star color to yellow */
     text-shadow: 0 0 15px rgba(255, 255, 0, 0.8), /* Soft yellow glow */
                  0 0 30px rgba(255, 255, 0, 0.6),
@@ -112,10 +135,10 @@ input[type="text"]:focus,
 .hint {
     display: none; /* Initially hidden */
     position: absolute;
-    font-size: 6px; /* Smaller font size for hint text (60% smaller) */
+    font-size: 16px; /* Font size for hint text */
     color: black; /* Hint text color */
-    top: 20px; /* Adjusted position of hint text */
-    left: -15px; /* Center the text in the star */
+    top: 15px; /* Position the hint text inside the star */
+    left: -30px; /* Center the text in the star */
     white-space: nowrap; /* Prevent line breaks */
     z-index: 2; /* Ensure hint text is above star */
 }
