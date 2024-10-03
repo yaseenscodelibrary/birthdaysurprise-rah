@@ -24,6 +24,7 @@ body {
     align-items: center;
     position: relative; /* For positioning stars */
     z-index: 1; /* Ensure the container is above stars */
+    margin: auto; /* Center the container */
 }
 
 /* Responsive container for mobile devices */
@@ -34,12 +35,12 @@ body {
     }
 
     input[type="text"] {
-        font-size: 16px; /* Slightly smaller font size */
+        font-size: 14px; /* Smaller font size */
     }
 
     #loginButton {
         padding: 10px 20px; /* Adjust button size */
-        font-size: 16px; /* Adjust button font size */
+        font-size: 14px; /* Adjust button font size */
     }
 }
 
@@ -73,7 +74,7 @@ input[type="text"] {
 .error-message {
     color: red;
     margin-top: 10px;
-    font-size: 16px; /* Slightly larger font */
+    font-size: 14px; /* Smaller font */
 }
 
 /* Make input box and button stand out with focus */
@@ -86,7 +87,7 @@ input[type="text"]:focus,
 /* Star hint styling */
 .star {
     position: absolute;
-    font-size: 30px; /* Smaller size of stars */
+    font-size: 20px; /* Smaller size of stars */
     animation: float 3s ease-in-out infinite; /* Float animation */
     transition: transform 0.5s, color 0.5s; /* Smooth transition for movement and glow */
     pointer-events: auto; /* Allow hover effects */
@@ -113,7 +114,7 @@ input[type="text"]:focus,
 .hint {
     display: none; /* Initially hidden */
     position: absolute;
-    font-size: 12px; /* Smaller font size for hint text */
+    font-size: 10px; /* Smaller font size for hint text */
     color: black; /* Hint text color */
     top: 25px; /* Adjusted position of hint text */
     left: -20px; /* Center the text in the star */
