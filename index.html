@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -167,8 +166,10 @@
 
         function validatePassword() {
             const inputPassword = passwordInput.value.toLowerCase(); // Convert input to lowercase
+            console.log("Input Password:", inputPassword); // Log input for debugging
             if (passwords.hasOwnProperty(inputPassword)) {
-                window.location.href = "index.html"; // Redirect to index.html
+                alert("Password is correct!");
+                window.location.href = "mainmenu.html"; // Redirect on correct password
             } else {
                 errorMessage.textContent = "Incorrect password! Try again.";
                 passwordInput.value = ''; // Clear input after incorrect attempt
@@ -176,5 +177,4 @@
         }
     </script>
 </body>
-
 </html>
