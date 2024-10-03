@@ -126,7 +126,7 @@
     <div id="login-container">
         <h1 class="bubblegum-sans-regular">Enter za password (:p)</h1> <!-- Added heading -->
         <input type="text" id="passwordInput" placeholder="Enter password">
-        <button id="loginButton" type="button">Submit</button> <!-- Set type to button -->
+        <button id="loginButton">Submit</button> <!-- Set type to button -->
         <p class="error-message" id="errorMessage"></p> <!-- Error message -->
     </div>
 
@@ -158,11 +158,14 @@
             const errorMessage = document.getElementById("errorMessage");
             const loginButton = document.getElementById("loginButton");
 
-            loginButton.addEventListener("click", () => {
+            loginButton.addEventListener("click", (event) => {
+                event.preventDefault(); // Prevent the button's default action
                 validatePassword();
             });
+
             passwordInput.addEventListener("keypress", (e) => {
                 if (e.key === "Enter") {
+                    e.preventDefault(); // Prevent default form submission
                     validatePassword();
                 }
             });
