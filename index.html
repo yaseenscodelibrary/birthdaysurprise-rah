@@ -21,6 +21,7 @@
             margin: 0;
             position: relative; /* Position for stars */
             overflow: hidden; /* Prevent scrollbars from appearing */
+            transition: opacity 0.5s; /* Smooth fade-out transition */
         }
 
         #login-container {
@@ -119,6 +120,18 @@
         .star:hover .hint {
             display: block; /* Show hint when hovering */
         }
+
+        /* Style for the message after successful login */
+        #successMessage {
+            display: none; /* Initially hidden */
+            font-size: 30px; /* Font size for message */
+            color: black; /* Change to black color */
+            position: absolute; /* Position in center */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2; /* Ensure message is above other content */
+        }
     </style>
 </head>
 
@@ -129,6 +142,8 @@
         <button id="loginButton">Submit</button> <!-- Set type to button -->
         <p class="error-message" id="errorMessage"></p> <!-- Error message -->
     </div>
+
+    <div id="successMessage">Muah 😙</div> <!-- Success message -->
 
     <!-- Stars with hints positioned in the background -->
     <div class="star" style="top: 20%; left: 70%;">
@@ -157,6 +172,8 @@
             const passwordInput = document.getElementById("passwordInput");
             const errorMessage = document.getElementById("errorMessage");
             const loginButton = document.getElementById("loginButton");
+            const successMessage = document.getElementById("successMessage");
+            const loginContainer = document.getElementById("login-container"); // Get login container
 
             loginButton.addEventListener("click", (event) => {
                 event.preventDefault(); // Prevent the button's default action
@@ -174,8 +191,18 @@
                 const inputPassword = passwordInput.value.toLowerCase(); // Convert input to lowercase
                 console.log("Input Password:", inputPassword); // Log input for debugging
                 if (passwords.hasOwnProperty(inputPassword)) {
-                    alert("Password is correct!");
-                    window.location.href = "mainmenu.html"; // Redirect on correct password
+                    successMessage.style.display = "block"; // Show success message
+                    setTimeout(() => {
+                        loginContainer.style.display = "none"; // Hide the login container
+                        successMessage.style.display = "block"; // Ensure success message is shown
+                        setTimeout(() => {
+                            // Fade out the body
+                            document.body.style.opacity = "0"; // Start fade out
+                            setTimeout(() => {
+                                window.location.href = "mainmenu.html"; // Redirect after fading out
+                            }, 500); // Wait for fade out to finish before redirecting
+                        }, 3000); // 3-second delay
+                    }, 0); // Show the success message immediately
                 } else {
                     errorMessage.textContent = "Incorrect password! Try again.";
                     passwordInput.value = ''; // Clear input after incorrect attempt
