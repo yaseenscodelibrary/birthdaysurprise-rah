@@ -157,9 +157,13 @@
         const errorMessage = document.getElementById("errorMessage");
         const loginButton = document.getElementById("loginButton");
 
-        loginButton.addEventListener("click", validatePassword);
+        loginButton.addEventListener("click", (event) => {
+            event.preventDefault(); // Prevent form submission
+            validatePassword();
+        });
         passwordInput.addEventListener("keypress", (e) => {
             if (e.key === "Enter") {
+                e.preventDefault(); // Prevent form submission
                 validatePassword();
             }
         });
