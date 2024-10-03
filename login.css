@@ -41,6 +41,10 @@ body {
         padding: 10px 20px; /* Adjust button size */
         font-size: 18px; /* Adjust button font size */
     }
+
+    .hint {
+        font-size: 0.8em; /* Smaller font size for hints on mobile */
+    }
 }
 
 input[type="text"] {
@@ -86,7 +90,7 @@ input[type="text"]:focus,
 /* Star hint styling */
 .star {
     position: absolute;
-    font-size: 50px; /* Initial size of stars */
+    font-size: 30px; /* Adjusted size of stars for better fit */
     animation: float 3s ease-in-out infinite; /* Float animation */
     transition: transform 0.5s, color 0.5s; /* Smooth transition for movement and glow */
     pointer-events: auto; /* Allow hover effects */
@@ -113,7 +117,7 @@ input[type="text"]:focus,
 .hint {
     display: none; /* Initially hidden */
     position: absolute;
-    font-size: 16px; /* Font size for hint text */
+    font-size: 0.8em; /* Font size for hint text */
     color: black; /* Hint text color */
     top: 15px; /* Position the hint text inside the star */
     left: -30px; /* Center the text in the star */
