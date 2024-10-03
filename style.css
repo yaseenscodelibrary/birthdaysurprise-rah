@@ -1,0 +1,118 @@
+/* General Styling */
+body {
+    font-family: 'Pixelify Sans', sans-serif; /* Font for body */
+    background: url('images/cherry_blossom.png') no-repeat center center fixed; /* Updated image path */
+    background-size: cover; /* Adjust the image to cover the entire background */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Button Container */
+#button-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+/* Button Styling */
+.nav-button {
+    font-family: 'Pixelify Sans', sans-serif; /* Set font for buttons */
+    background-color: #ffb6c1;
+    border: none;
+    padding: 15px 20px;
+    font-size: 20px;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Button Hover Effect */
+.nav-button:hover {
+    transform: scale(1.1);
+    background-color: #ff69b4;
+}
+
+/* Timer Section */
+#moment-section {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#timer {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Audio Controls */
+.audio-controls {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+}
+
+/* Mute Button */
+#muteButton {
+    background-color: #333; /* Darker background for contrast */
+    border: none;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 24px;
+    color: white; /* White text for contrast */
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#muteButton:hover {
+    background-color: #555; /* Lighter hover color */
+    transform: scale(1.1); /* Slightly enlarge button on hover */
+}
+
+/* Volume Slider */
+#volumeSlider {
+    width: 0;
+    opacity: 0;
+    background-color: #333; /* Darker slider background for contrast */
+    -webkit-appearance: none;
+    height: 6px;
+    margin-left: 10px;
+    transition: width 0.3s, opacity 0.3s;
+}
+
+#volumeSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background-color: #ff69b4; /* Thumb color to match theme */
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#volumeSlider:hover {
+    opacity: 1;
+}
+
+.audio-controls:hover #volumeSlider {
+    width: 120px; /* Increased width for better visibility */
+    opacity: 1;
+}
+
+/* Slider Hover Effect */
+.audio-controls:hover #volumeSlider {
+    width: 120px; /* Increase the slider width */
+    opacity: 1;
+}

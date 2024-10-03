@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap" rel="stylesheet">
+    <style>
+        /* Import the font */
+        @import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap');
+
+        body {
+            font-family: "Bubblegum Sans", sans-serif; /* Use Bubblegum Sans font */
+            background-color: #fce4ec; /* Light pink background color */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full viewport height */
+            margin: 0;
+            position: relative; /* Position for stars */
+            overflow: hidden; /* Prevent scrollbars from appearing */
+        }
+
+        #login-container {
+            background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
+            padding: 40px; /* Increase padding for a bigger container */
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 300px; /* Set a fixed width */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative; /* Ensure the container stays above the stars */
+            z-index: 1; /* Ensure the container is above stars */
+        }
+
+        input[type="text"] {
+            padding: 12px;
+            font-size: 20px; /* Larger font size */
+            border: 2px solid #ccc; /* Make the border thicker */
+            border-radius: 5px;
+            width: 100%; /* Take up full width of container */
+            margin-top: 10px;
+            box-sizing: border-box; /* Ensure padding is included in width */
+        }
+
+        #loginButton {
+            background-color: #ff69b4;
+            border: none;
+            color: white;
+            padding: 12px 25px; /* Larger button */
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+            font-size: 20px; /* Larger font */
+            transition: background-color 0.3s;
+            width: 100%; /* Full width button */
+        }
+
+        #loginButton:hover {
+            background-color: #ff1493;
+        }
+
+        .error-message {
+            color: red;
+            margin-top: 10px;
+            font-size: 16px; /* Slightly larger font */
+        }
+
+        /* Make input box and button stand out with focus */
+        input[type="text"]:focus,
+        #loginButton:focus {
+            outline: none; /* Remove default outline */
+            box-shadow: 0 0 10px rgba(255, 105, 180, 0.6); /* Pink shadow focus effect */
+        }
+
+        /* Star hint styling */
+        .star {
+            position: absolute;
+            font-size: 200px; /* Increased size of stars (200%) */
+            animation: float 3s ease-in-out infinite; /* Float animation */
+            transition: transform 0.5s, color 0.5s; /* Smooth transition for movement and glow */
+            pointer-events: auto; /* Allow hover effects */
+        }
+
+        /* Float animation */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px); /* Adjust float height */
+            }
+        }
+
+        .star:hover {
+            transform: scale(1.5); /* Enlarge on hover */
+            color: rgba(255, 255, 0, 1); /* Change star color to yellow */
+            text-shadow: 0 0 15px rgba(255, 255, 0, 0.8), /* Soft yellow glow */
+                         0 0 30px rgba(255, 255, 0, 0.6),
+                         0 0 45px rgba(255, 255, 0, 0.4);
+        }
+
+        .hint {
+            display: none; /* Initially hidden */
+            position: absolute;
+            font-size: 30px; /* Font size for hint text */
+            color: black; /* Hint text color */
+            top: 50%; /* Center the hint text vertically */
+            left: 50%; /* Center the hint text horizontally */
+            transform: translate(-50%, -50%); /* Center align both horizontally and vertically */
+            white-space: nowrap; /* Prevent line breaks */
+            z-index: 2; /* Ensure hint text is above star */
+        }
+
+        .star:hover .hint {
+            display: block; /* Show hint when hovering */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="login-container">
+        <h1 class="bubblegum-sans-regular">Enter za password (:p)</h1> <!-- Added heading -->
+        <input type="text" id="passwordInput" placeholder="Enter password">
+        <button id="loginButton">Submit</button>
+        <p class="error-message" id="errorMessage"></p> <!-- Error message -->
+    </div>
+
+    <!-- Stars with hints positioned in the background -->
+    <div class="star" style="top: 20%; left: 70%;">
+        ⭐
+        <div class="hint">What do I have your contact saved as? (Faaleha ___)</div>
+    </div>
+    <div class="star" style="top: 70%; left: 30%;">
+        ⭐
+        <div class="hint">You're a silly ___</div>
+    </div>
+    <div class="star" style="top: 15%; left: 15%;">
+        ⭐
+        <div class="hint">What jewel/diamond do I associate/used to associate with you?</div>
+    </div>
+
+    <script>
+        // Password and hints setup
+        const passwords = {
+            "pillow": "What do I have your contact saved as? (Faaleha ___)",
+            "goose": "You're a silly ___",
+            "kohinoor": "What jewel/diamond do I associate/used to associate with you?"
+        };
+
+        // Check password input
+        const passwordInput = document.getElementById("passwordInput");
+        const errorMessage = document.getElementById("errorMessage");
+        const loginButton = document.getElementById("loginButton");
+
+        loginButton.addEventListener("click", validatePassword);
+        passwordInput.addEventListener("keypress", (e) => {
+            if (e.key === "Enter") {
+                validatePassword();
+            }
+        });
+
+        function validatePassword() {
+            const inputPassword = passwordInput.value.toLowerCase(); // Convert input to lowercase
+            if (passwords.hasOwnProperty(inputPassword)) {
+                window.location.href = "index.html"; // Redirect to index.html
+            } else {
+                errorMessage.textContent = "Incorrect password! Try again.";
+                passwordInput.value = ''; // Clear input after incorrect attempt
+            }
+        }
+    </script>
+</body>
+
+</html>
