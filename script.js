@@ -1,5 +1,5 @@
 // Specify the start date in local time (Year, Month - 1, Day, Hour, Minute, Second)
-let startDate = new Date(2024, 4, 12, 3, 47, 0); // May 12, 2024, 3:47 AM (local time)
+let startDate = new Date(2024, 4, 12, 3, 47, 50); // May 12, 2024, 3:47 AM (local time)
 
 // Function to calculate time difference
 function updateTimer() {
