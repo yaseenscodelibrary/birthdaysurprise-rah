@@ -1,8 +1,8 @@
 // Specify the start date in local time (Year, Month - 1, Day, Hour, Minute, Second)
 let startDate = new Date(2024, 4, 12, 3, 47, 50); // May 12, 2024, 3:47 AM (local time)
 
-// Function to calculate time difference
-function updateTimer() {
+// Function to calculate time difference and format it
+function calculateTimeDifference() {
     let now = new Date(); // Current local date and time
 
     // Calculate the time difference in milliseconds
@@ -39,13 +39,43 @@ function updateTimer() {
         years--;
     }
 
-    // Display the timer result
-    document.getElementById('timer').innerHTML = 
-        `${years} years, ${months} months, ${days} days, ${hours} hours, ${minutes} minutes, and ${seconds} seconds`;
+    return `${years} years, ${months} months, ${days} days, ${hours} hours, ${minutes} minutes, and ${seconds} seconds`;
 }
 
-// Update the timer every second
-setInterval(updateTimer, 1000);
+// Typewriter effect function (used only once)
+function typeWriter(element, text, index = 0, speed = 50, callback) {
+    if (index < text.length) {
+        element.textContent += text.charAt(index);
+        setTimeout(() => typeWriter(element, text, index + 1, speed, callback), speed); // Speed of typing
+    } else if (callback) {
+        callback(); // Call the callback function once typing is done
+    }
+}
+
+// Function to update the timer without typewriter effect
+function updateTimer() {
+    let timerElement = document.getElementById('timer');
+    let timeString = calculateTimeDifference();
+
+    // Simply update the text, no typewriter effect
+    timerElement.textContent = timeString;
+}
+
+// Initial setup with typewriter effect, then regular updates without typewriter
+function initialLoad() {
+    let timerElement = document.getElementById('timer');
+    let timeString = calculateTimeDifference();
+
+    // Run the typewriter effect only on initial load
+    typeWriter(timerElement, timeString, 0, 50, () => {
+        // After typewriter effect completes, update the timer immediately and then start regular updates every second
+        updateTimer(); // Ensure immediate update after typewriter effect
+        setInterval(updateTimer, 1000);
+    });
+}
+
+// Call the initial load function when the page loads
+initialLoad();
 
 // Get the audio element and controls
 const backgroundAudio = document.getElementById('backgroundAudio');
@@ -91,5 +121,5 @@ function fadeIn() {
 
 // Fade-in effect when the page loads
 window.onload = function() {
-    document.body.style.opacity = '1'; // Set the opacity to 1 when the page loads
+    fadeIn();
 };
