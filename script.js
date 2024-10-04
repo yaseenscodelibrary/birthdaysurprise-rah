@@ -74,3 +74,22 @@ muteButton.addEventListener('click', () => {
 volumeSlider.addEventListener('input', (e) => {
     backgroundAudio.volume = e.target.value;
 });
+
+// Fade-in effect function
+function fadeIn() {
+    const body = document.body;
+    body.style.opacity = 0; // Start from transparent
+    let fade = setInterval(() => {
+        let val = parseFloat(body.style.opacity);
+        if (!((val += 0.02) > 1)) {
+            body.style.opacity = val;
+        } else {
+            clearInterval(fade);
+        }
+    }, 20); // Adjust the speed (higher number = slower fade)
+}
+
+// Fade-in effect when the page loads
+window.onload = function() {
+    document.body.style.opacity = '1'; // Set the opacity to 1 when the page loads
+};
