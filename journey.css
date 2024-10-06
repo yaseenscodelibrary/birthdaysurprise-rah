@@ -100,84 +100,168 @@ body {
 /* Diary index section */
 #index {
     flex: 1;
-    background-color: #f5f5f5;
-    padding: 20px;
-    overflow-y: auto;
-    position: relative;
+    background-color: #f5f5f5; /* Light background color */
+    padding: 20px; /* Space around the index */
+    overflow-y: auto; /* Allow scrolling if content overflows */
+    position: relative; /* Positioning context */
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center children horizontally */
+    justify-content: flex-start; /* Align items at the start vertically */
+    display: none; /* Hide index by default */
 }
 
 /* Title of the index */
-#index h1 {
-    text-align: center;
-    color: #5d1e20;
-    margin-bottom: 20px;
-    font-family: 'Pacifico', cursive;
+
+#index-page h1 {
+    text-align: center; /* Center the title text */
+    color: #000000; /* Dark red color */
+    margin-bottom: 20px; /* Space below the title */
+    font-family: 'Pacifico', cursive; /* Custom font */
 }
 
 #index ul {
     list-style-type: none !important; /* Remove bullet points */
-    padding: 0;
-    margin: 0; /* Add this to ensure no default padding/margin */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
 }
 
 #index li {
-    margin: 5px 0; /* Reduce spacing between list items */
+    margin: 5px 0; /* Space between list items */
     color: #f5f5dc; /* Cream color for index items */
-    font-family: 'Pacifico', cursive;
-    font-size: 14px; /* Reduce the font size */
-    text-align: center;
+    font-family: 'Pacifico', cursive; /* Custom font */
+    font-size: 14px; /* Font size */
+    text-align: center; /* Center text in list items */
 }
 
 /* Links */
 #index a {
-    text-decoration: none;
+    text-decoration: none; /* Remove underline */
     color: #f5f5dc; /* Cream color for links */
-    font-weight: bold;
-    transition: color 0.3s;
-    padding: 3px 7px; /* Reduce padding around the links */
-    border-radius: 5px; /* Optional: add rounded corners */
+    font-weight: bold; /* Bold text for links */
+    transition: color 0.3s; /* Smooth color transition on hover */
+    padding: 3px 7px; /* Padding around the links */
+    border-radius: 5px; /* Rounded corners */
 }
 
 /* Links hover */
 #index a:hover {
-    color: #5d1e20;
-    background-color: rgba(255, 255, 255, 0.2); /* Add a light background on hover */
+    color: #5d1e20; /* Change link color on hover */
+    background-color: rgba(255, 255, 255, 0.2); /* Light background on hover */
 }
 
-/* Prevent index and pages from scrolling individually */
+/* Pages inside the diary */
 .pages {
+    height: 100%;
     flex: 3;
+    display: flex;
+    flex-direction: column;
     padding: 20px;
-    background-color: #5d1e20;
-    overflow: hidden; /* Prevent scroll inside the pages */
+    background-color: #5d1e20; /* Darker background color to contrast with pages */
+    overflow-y: auto; /* Only vertical overflow */
 }
+
 /* Individual pages */
 .page {
     display: none;
     flex: 1;
     background-color: #f5f5dc; /* Coffee beige color for the pages */
-    background-image: linear-gradient(transparent 95%, rgba(0, 0, 0, 0.1)); /* Add faded lines */
+    border: 1px solid #5d1e20; /* Solid brown border */
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    padding: 20px;
+    padding: 5px;
+    display: flex; /* Flex container for the left and right pages */
+    flex-direction: row; /* Align left and right pages in a row */
 }
 
+/* Left and right page styles */
 .left-page,
 .right-page {
-    position: relative;
-    flex: 1;
-    padding: 10px; /* Reduce padding */
-    border: 1px solid #5d1e20;
-    background: #f5f5dc; /* Coffee beige color */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    font-family: 'Pacifico', cursive; /* Set Pacifico font for the left and right pages */
-    font-size: 16px; /* Reduce the font size */
-    background-image: linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0.1) 1px,
-        transparent 1px
-    ); /* Solid faded lines */
-    background-size: 100% 30px; /* Spacing between lines */
+    width: 50%; /* Each takes half the page */
+    padding: 10px;
+    overflow-y: auto; /* Allow scrolling if content overflows */
+        display: flex; /* Use flexbox for centering */
+} 
+
+/* Divider in the middle */
+.divider {
+    width: 4px; /* Adjust width of the divider */
+    background-color: black; /* Black color for the divider */
+    height: 100%;
+}
+
+.left-page {
+    width: 50%; /* Each takes half the page */
+    padding: 10px;
+    overflow-y: auto; /* Allow scrolling if content overflows */
+    display: flex; /* Use flexbox for centering */
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center align items horizontally */
+}
+
+.left-page ul {
+    padding-left: 20px; /* Optional: space for list items */
+    margin: 0; /* Remove default margin */
+    list-style-type: none; /* Remove default bullet points */
+}
+
+.left-page ul li {
+    text-align: left; /* Ensure list items are left-aligned */
+}
+
+/* Ensuring the list items are left aligned */
+.left-page ul li a {
+    display: block; /* Makes the entire list item clickable */
+    text-align: left; /* Left-align the text in the links */
+    color: #000; /* Set the color of links to black */
+    padding: 5px 0; /* Optional: spacing for better click area */
+    text-decoration: none; /* Remove underline from links */
+}
+
+/* Remove the visited link color and keep all links black */
+.left-page ul li a:visited {
+    color: #000; /* Keep the visited links the same color */
+}
+
+/* Optional: underline on hover */
+.left-page ul li a:hover {
+    text-decoration: underline; 
+}
+
+.right-page {
+    display: flex; /* Use flexbox for alignment */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    margin-top: 75px; /* Add some space above the right page */
+}
+
+.right-page ul {
+    padding: 0; /* Remove any padding */
+    margin-top: 50px; /* Add top margin to push the list down */
+    list-style-type: none; /* Remove bullet points */
+}
+
+.right-page ul li {
+    text-align: center; /* Center align list items */
+    margin: 5px 0; /* Add some space between list items */
+}
+
+/* Center align links and keep color black */
+.right-page ul li a {
+    display: block; /* Makes the entire list item clickable */
+    color: #000; /* Set the color of links to black */
+    text-decoration: none; /* Remove underline from links */
+    padding: 5px 0; /* Optional: spacing for better click area */
+}
+
+/* Ensure visited links stay black */
+.right-page ul li a:visited {
+    color: #000; /* Keep the visited links the same color */
+}
+
+/* Underline links on hover */
+.right-page ul li a:hover {
+    text-decoration: underline; 
 }
 
 
@@ -187,6 +271,7 @@ body {
     list-style-type: none;
     padding: 0;
     margin: 0;
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
     align-items: center; /* Center links horizontally */
