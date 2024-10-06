@@ -4,14 +4,25 @@
     box-sizing: border-box;
 }
 
+ul {
+    list-style-type: none !important;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style-type: none !important;
+}
+
+
 body {
-    font-family: 'Cookie Monster', cursive;
+    font-family: 'Pacifico', cursive;
     overflow: hidden;
     position: relative;
-    height: 100vh; /* Ensure the body takes the full height of the viewport */
-    display: flex; /* Use flexbox to center children */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .background {
@@ -24,22 +35,25 @@ body {
     z-index: -1;
 }
 
+/* Background GIF */
 .background img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
+/* Closed Diary */
 #closed-diary {
     width: 300px;
     height: 400px;
-    background-color: #722F37 !important; /* Cherry wine color */
+    background-color: #5d1e20; /* Cherry wine color */
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     cursor: pointer;
     transition: transform 0.3s;
 }
 
+/* Closed Diary hover effect */
 #closed-diary:hover {
     transform: scale(1.05);
 }
@@ -52,90 +66,104 @@ body {
     text-align: center;
 }
 
+/* Cover title for the closed diary */
 .diary-title {
     font-size: 24px;
-    color: #f5f5dc; /* Cream color */
+    color: #f5f5dc !important; /* Cream color */
     font-weight: bold;
-    text-shadow: none; /* Remove glow effect */
-    font-family: 'Pacifico', cursive;
-    margin: 0; /* Remove any default margin */
+    text-align: center;
+    padding: 20px;
 }
 
+/* Open diary */
 #open-diary {
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
+/* Diary container */
 .diary {
     width: 700px;
     height: 500px;
-    background-color: #722F37 !important;/* Cherry wine color */
+    background: rgba(255, 255, 255, 0.9);
     border-radius: 15px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     overflow: hidden;
     display: flex;
-    font-family: 'Pacifico', cursive; /* Apply Pacifico font to diary */
 }
 
+/* Diary index section */
 #index {
     flex: 1;
-    background-color: #f5f5f5; /* Background color remains */
+    background-color: #f5f5f5;
     padding: 20px;
     overflow-y: auto;
     position: relative;
 }
 
+/* Title of the index */
 #index h1 {
     text-align: center;
-    color: #a0522d; /* Title color */
-    margin-bottom: 20px; /* Add some space below the title */
-    font-family: 'Pacifico', cursive; /* Use Pacifico font */
+    color: #a0522d;
+    margin-bottom: 20px;
+    font-family: 'Pacifico', cursive;
 }
 
 #index ul {
-    list-style-type: none;
+    list-style-type: none !important; /* Remove bullet points */
     padding: 0;
-    display: flex; /* Use flexbox for layout */
-    flex-wrap: wrap; /* Allow items to wrap to the next line */
-    justify-content: space-around; /* Space out items evenly */
+    margin: 0; /* Add this to ensure no default padding/margin */
 }
 
 #index li {
-    margin: 10px 5px; /* Margin for spacing */
-    padding-left: 10px; /* Align text with lines */
-    padding-right: 10px; /* Align text with lines */
+    margin: 20px 0; /* Adjust this margin to add space between items */
+    padding-left: 10px;
+    padding-right: 10px;
     color: #f5f5dc; /* Cream color for index items */
-    font-family: 'Pacifico', cursive; /* Use Pacifico font */
-    flex: 0 0 45%; /* 45% width for each item, adjust as needed */
+    font-family: 'Pacifico', cursive;
+    text-align: center;
 }
 
+
+/* Links */
 #index a {
     text-decoration: none;
     color: #f5f5dc; /* Cream color for links */
     font-weight: bold;
     transition: color 0.3s;
+    padding: 5px 10px; /* Add padding around the links */
+    border-radius: 5px; /* Optional: add rounded corners */
 }
 
+/* Links hover */
 #index a:hover {
-    color: #b22222; /* Color on hover */
+    color: #b22222;
+    background-color: rgba(255, 255, 255, 0.2); /* Add a light background on hover */
 }
 
-
-
+/* Pages inside the diary */
 .pages {
     flex: 3;
     display: flex;
     flex-direction: column;
     padding: 20px;
-    font-family: 'Pacifico', cursive; /* Apply Pacifico font to pages */
+    background-color: #a0522d; /* Beige coffee color */
 }
 
+/* Individual pages */
 .page {
     display: none;
     flex: 1;
+    background-color: #f5f5dc; /* Coffee beige color for the pages */
+    border: 1px solid #a0522d; /* Light brown border */
+    background-image: linear-gradient(transparent 95%, rgba(0, 0, 0, 0.1)); /* Add faded lines */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    padding: 20px;
 }
+
 
 #index h1,
 #index li,
@@ -149,8 +177,6 @@ body {
     flex: 1;
     padding: 20px;
     border: 1px solid #a0522d;
-    border-radius: 5px;
-    margin: 0 10px;
     background: #f5f5dc; /* Coffee beige color */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     font-family: 'Pacifico', cursive; /* Set Pacifico font for the left and right pages */

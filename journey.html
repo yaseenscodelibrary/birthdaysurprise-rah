@@ -18,10 +18,10 @@
             font-family: 'Cookie Monster', cursive;
             overflow: hidden;
             position: relative;
-            height: 100vh; /* Ensure the body takes the full height of the viewport */
-            display: flex; /* Use flexbox to center children */
-            justify-content: center; /* Center horizontally */
-            align-items: center; /* Center vertically */
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .background {
@@ -210,7 +210,7 @@
             <div class="pages">
                 <div class="page" id="index-page">
                     <div class="left-page">
-                        <h1>Diary Index</h1>
+                        <h1>Journal Index</h1>
                         <ul>
                             <li><a href="#page1" onclick="showPage(0)">Screenshot 1</a></li>
                             <li><a href="#page2" onclick="showPage(1)">Screenshot 2</a></li>
@@ -218,33 +218,27 @@
                             <li><a href="#page4" onclick="showPage(3)">Screenshot 4</a></li>
                             <li><a href="#page5" onclick="showPage(4)">Screenshot 5</a></li>
                             <li><a href="#page6" onclick="showPage(5)">Screenshot 6</a></li>
+                        </ul>
+                    </div>
+                    <div class="right-page">
+                        <ul>
                             <li><a href="#page7" onclick="showPage(6)">Screenshot 7</a></li>
                             <li><a href="#page8" onclick="showPage(7)">Screenshot 8</a></li>
                             <li><a href="#page9" onclick="showPage(8)">Screenshot 9</a></li>
                             <li><a href="#page10" onclick="showPage(9)">Screenshot 10</a></li>
                             <li><a href="#page11" onclick="showPage(10)">Screenshot 11</a></li>
                             <li><a href="#page12" onclick="showPage(11)">Screenshot 12</a></li>
-                            <li><a href="#page13" onclick="showPage(12)">Screenshot 13</a></li>
-                            <li><a href="#page14" onclick="showPage(13)">Screenshot 14</a></li>
-                            <li><a href="#page15" onclick="showPage(14)">Screenshot 15</a></li>
-                            <li><a href="#page16" onclick="showPage(15)">Screenshot 16</a></li>
-                            <li><a href="#page17" onclick="showPage(16)">Screenshot 17</a></li>
-                            <li><a href="#page18" onclick="showPage(17)">Screenshot 18</a></li>
                         </ul>
                     </div>
-                    <div class="right-page">
-                        <h2>Index Navigation</h2>
-                        <a class="nav-button" onclick="goNextIndex()">Next > </a>
-                    </div>
-                </div>
+                    
                 
                 <div class="page" id="page1" style="display: none;">
                     <div class="left-page">
                         <a class="nav-button" onclick="goBack(0)"> < Back</a>
                     </div>
                     <div class="right-page">
-                        <h2>Screenshot 1</h2>
-                        <p class="date">Date: YYYY-MM-DD</p>
+                        <h2>The First Time You Called Me Cute</h2>
+                        <p class="date">Date: 12 may 2024</p>
                         <div class="polaroid">
                             <img src="images/Fcute.png" alt="Screenshot 1">
                             <div class="timer">Time ago: 12 May 2024, 9:20AM</div>
