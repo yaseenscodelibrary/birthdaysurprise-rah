@@ -6,6 +6,7 @@
     <title>Password Login</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap" rel="stylesheet">
     <style>
         /* Import the font */
@@ -121,12 +122,13 @@
 
 
         /* Input and Button Styles */
+        input[type="password"],
         input[type="text"] {
             padding: 12px;
             font-size: 20px;
             border: 2px solid #ccc;
             border-radius: 5px;
-            width: 100%;
+            width: calc(100% - 40px); /* Adjusted width for the eye icon */
             margin-top: 10px;
             box-sizing: border-box;
         }
@@ -146,6 +148,16 @@
 
         #loginButton:hover {
             background-color: #ff1493;
+        }
+
+        /* Eye icon */
+        .eye-icon {
+            position: absolute;
+            right: 10px;
+            top: 105px; /* Position it to align with the input field */
+            cursor: pointer;
+            font-size: 20px;
+            color: #ff69b4;
         }
 
         .error-message {
@@ -204,6 +216,8 @@
             display: block;
         }
 
+
+        /* Success message styling */
         #successMessage {
             display: none;
             font-size: 30px;
@@ -220,12 +234,16 @@
 <body>
     <div id="login-container">
         <h1>Enter za password (:p)</h1>
-        <input type="text" id="passwordInput" placeholder="Enter password">
+        <div style="position: relative; width: 100%;">
+            <input type="password" id="passwordInput" placeholder="Enter password">
+            <i class="far fa-eye" id="togglePassword" style="opacity: 0.5; cursor: pointer;"></i>
+        </div>
         <button id="loginButton">Submit</button>
         <p class="error-message" id="errorMessage"></p>
     </div>
-
+    
     <div id="successMessage">Muah 😙</div>
+
 
     <!-- Floating hearts -->
     <div class="heart">❤️</div>
@@ -290,25 +308,34 @@
                 "goose": "You're a silly ___",
                 "kohinoor": "What jewel/diamond do I associate/used to associate with you?"
             };
-
+    
             const passwordInput = document.getElementById("passwordInput");
             const errorMessage = document.getElementById("errorMessage");
             const loginButton = document.getElementById("loginButton");
             const successMessage = document.getElementById("successMessage");
             const loginContainer = document.getElementById("login-container");
-
+            const togglePassword = document.getElementById("togglePassword");
+    
             loginButton.addEventListener("click", (event) => {
                 event.preventDefault();
                 validatePassword();
             });
-
+    
+            togglePassword.addEventListener("click", () => {
+                const type = passwordInput.getAttribute("type") === "password" ? "text" : "password";
+                passwordInput.setAttribute("type", type);
+                // Toggle the icon between eye and eye-slash
+                togglePassword.classList.toggle("fa-eye"); // Change to the "eye" icon
+                togglePassword.classList.toggle("fa-eye-slash"); // Change to the "eye-slash" icon
+            });
+    
             passwordInput.addEventListener("keypress", (e) => {
                 if (e.key === "Enter") {
                     e.preventDefault();
                     validatePassword();
                 }
             });
-
+    
             function validatePassword() {
                 const inputPassword = passwordInput.value.toLowerCase();
                 if (passwords.hasOwnProperty(inputPassword)) {
@@ -331,6 +358,6 @@
                 }
             }
         });
-    </script>
+    </script>    
 </body>
 </html>

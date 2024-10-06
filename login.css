@@ -41,6 +41,27 @@ body {
     z-index: 1;
 }
 
+.eye-icon {
+    opacity: 0.6; /* Adjust this value for desired translucency */
+    cursor: pointer; /* Change cursor to pointer for better UX */
+    transition: opacity 0.3s; /* Smooth transition effect */
+}
+
+.eye-icon:hover {
+    opacity: 1; /* Fully opaque on hover */
+}
+
+#togglePassword {
+    position: absolute;
+    right: 10px; /* Adjust to position the icon */
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.5; /* Translucent */
+    font-size: 1.5rem; /* Adjust size as needed */
+    cursor: pointer;
+}
+
+
 /* Floating hearts */
 .heart {
     position: absolute;
