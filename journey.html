@@ -8,190 +8,196 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-        body {
-            font-family: 'Cookie Monster', cursive;
-            overflow: hidden;
-            position: relative;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+    body {
+        font-family: 'Cookie Monster', cursive;
+        overflow: hidden;
+        position: relative;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
-        .background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: -1;
-        }
+    .background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: -1;
+    }
 
-        .background img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+    .background img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 
-        #closed-diary {
-            width: 300px;
-            height: 400px;
-            background-color: #f9d5d5;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
+    #closed-diary {
+        width: 300px;
+        height: 400px;
+        background-color: #5d1e20;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        cursor: pointer;
+        transition: transform 0.3s;
+    }
 
-        #closed-diary:hover {
-            transform: scale(1.05);
-        }
+    #closed-diary:hover {
+        transform: scale(1.05);
+    }
 
-        .diary-cover {
-            text-align: center;
-            padding: 20px;
-        }
+    .diary-cover {
+        text-align: center;
+        padding: 20px;
+    }
 
-        .diary-title {
-            font-size: 24px;
-            color: #a0522d;
-            font-weight: bold;
-        }
+    .diary-title {
+        font-size: 24px;
+        color: #5d1e20;
+        font-weight: bold;
+    }
 
-        #open-diary {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
+    #open-diary {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
 
-        .diary {
-            width: 700px;
-            height: 500px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 15px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            overflow: hidden;
-            display: flex;
-        }
+    .diary {
+        width: 700px;
+        height: 500px;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 15px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        overflow: hidden;
+        display: flex;
+    }
 
-        #index {
-            flex: 1;
-            background-color: #f5f5f5;
-            padding: 20px;
-            overflow-y: auto;
-        }
+    #index {
+        flex: 1;
+        background-color: #f5f5f5;
+        padding: 20px;
+        overflow-y: auto;
+    }
 
-        #index h1 {
-            text-align: center;
-            color: #a0522d;
-        }
+    #index h1 {
+        text-align: center;
+        color: #a0522d;
+    }
 
-        #index ul {
-            list-style-type: none;
-            padding: 0;
-        }
+    #index ul {
+        list-style-type: none;
+        padding: 0;
+    }
 
-        #index li {
-            margin: 10px 0;
-        }
+    #index li {
+        margin: 10px 0;
+    }
 
-        #index a {
-            text-decoration: none;
-            color: #a0522d;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
+    #index a {
+        text-decoration: none;
+        color: #5d1e20;
+        font-weight: bold;
+        transition: color 0.3s;
+    }
 
-        #index a:hover {
-            color: #b22222;
-        }
+    #index a:hover {
+        color: #5d1e20;
+    }
 
-        .pages {
-            flex: 3;
-            display: flex;
-            flex-direction: column;
-            padding: 20px;
-        }
+    .pages {
+        flex: 3;
+        display: flex;
+        padding: 20px;
+    }
 
-        .page {
-            display: none;
-            flex: 1;
-        }
+    .left-page,
+    .right-page {
+        position: relative;
+        flex: 1;
+        padding: 20px;
+        border: 1px solid #5d1e20;
+        border-radius: 5px;
+        margin: 0 10px;
+        background: #f5f5f5;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
 
-        .left-page,
-        .right-page {
-            position: relative;
-            flex: 1;
-            padding: 20px;
-            border: 1px solid #a0522d;
-            border-radius: 5px;
-            margin: 0 10px;
-            background: #f5f5f5;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
+    .divider {
+        width: 5px; /* Adjust width as needed */
+        background-color: black; /* Color of the divider */
+        height: auto; /* Set to auto to stretch full height */
+    }
 
-        .left-page {
-            text-align: left;
-        }
+    .left-page {
+        text-align: left;
+    }
 
-        .right-page {
-            text-align: right;
-        }
+    .right-page {
+        text-align: right;
+    }
 
-        .nav-button {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 15px;
-            background-color: #a0522d;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
-            transition: background-color 0.3s;
-        }
+    .nav-button {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 10px 15px;
+        background-color: #5d1e20;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none;
+        transition: background-color 0.3s;
+    }
 
-        .nav-button:hover {
-            background-color: #b22222;
-        }
+    .nav-button:hover {
+        background-color: #5d1e20;
+    }
 
-        .polaroid {
-            position: relative;
-            display: inline-block;
-            margin: 10px 0;
-        }
+    .polaroid {
+        position: relative;
+        display: inline-block;
+        margin: 10px 0;
+    }
 
-        .polaroid img {
-            width: 150px;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        }
+    .polaroid img {
+        width: 150px;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
 
-        .timer {
-            font-size: 14px;
-            color: #555;
-        }
+    .timer {
+        font-size: 14px;
+        color: #555;
+    }
 
-        .sticky-note {
-            background-color: #ffeb3b;
-            padding: 10px;
-            border-radius: 5px;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 140px;
-            font-size: 12px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        }
+    .sticky-note {
+        background-color: #ffeb3b;
+        padding: 10px;
+        border-radius: 5px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 140px;
+        font-size: 12px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Add this CSS for the page container */
+    .page-container {
+        display: flex;
+        align-items: stretch; /* Ensure the divider stretches the full height of the pages */
+    }
     </style>
 </head>
 <body>
@@ -218,16 +224,23 @@
                             <li><a href="#page4" onclick="showPage(3)">Screenshot 4</a></li>
                             <li><a href="#page5" onclick="showPage(4)">Screenshot 5</a></li>
                             <li><a href="#page6" onclick="showPage(5)">Screenshot 6</a></li>
+                            <li><a href="#page7" onclick="showPage(6)">Screenshot 6</a></li>
+                            <li><a href="#page8" onclick="showPage(7)">Screenshot 6</a></li>
+                            <li><a href="#page9" onclick="showPage(8)">Screenshot 6</a></li>
                         </ul>
                     </div>
+                    <div class="divider"></div>
                     <div class="right-page">
                         <ul>
-                            <li><a href="#page7" onclick="showPage(6)">Screenshot 7</a></li>
-                            <li><a href="#page8" onclick="showPage(7)">Screenshot 8</a></li>
-                            <li><a href="#page9" onclick="showPage(8)">Screenshot 9</a></li>
-                            <li><a href="#page10" onclick="showPage(9)">Screenshot 10</a></li>
-                            <li><a href="#page11" onclick="showPage(10)">Screenshot 11</a></li>
-                            <li><a href="#page12" onclick="showPage(11)">Screenshot 12</a></li>
+                            <li><a href="#page10" onclick="showPage(9)">Screenshot 7</a></li>
+                            <li><a href="#page11" onclick="showPage(10)">Screenshot 8</a></li>
+                            <li><a href="#page12" onclick="showPage(11)">Screenshot 9</a></li>
+                            <li><a href="#page13" onclick="showPage(12)">Screenshot 10</a></li>
+                            <li><a href="#page14" onclick="showPage(13)">Screenshot 11</a></li>
+                            <li><a href="#page15" onclick="showPage(14)">Screenshot 12</a></li>
+                            <li><a href="#page16" onclick="showPage(15)">Screenshot 12</a></li>
+                            <li><a href="#page17" onclick="showPage(16)">Screenshot 12</a></li>
+                            <li><a href="#page18" onclick="showPage(17)">Screenshot 12</a></li>
                         </ul>
                     </div>
                     

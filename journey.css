@@ -14,7 +14,6 @@ li {
     list-style-type: none !important;
 }
 
-
 body {
     font-family: 'Pacifico', cursive;
     overflow: hidden;
@@ -77,21 +76,25 @@ body {
 
 /* Open diary */
 #open-diary {
-    display: none;
+    display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    height: 90vh; /* Adjust to fit within the viewport */
+    width: 80vw; /* Adjust width to fit well within the screen */
 }
 
 /* Diary container */
 .diary {
-    width: 700px;
-    height: 500px;
-    background: rgba(255, 255, 255, 0.9);
+    width: 800px;
+    height: 600px;
+    background: #5d1e20;
     border-radius: 15px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    padding: 10px; /* Reduce padding */
     overflow: hidden;
     display: flex;
+    justify-content: center;
 }
 
 /* Diary index section */
@@ -106,7 +109,7 @@ body {
 /* Title of the index */
 #index h1 {
     text-align: center;
-    color: #a0522d;
+    color: #5d1e20;
     margin-bottom: 20px;
     font-family: 'Pacifico', cursive;
 }
@@ -118,14 +121,12 @@ body {
 }
 
 #index li {
-    margin: 20px 0; /* Adjust this margin to add space between items */
-    padding-left: 10px;
-    padding-right: 10px;
+    margin: 5px 0; /* Reduce spacing between list items */
     color: #f5f5dc; /* Cream color for index items */
     font-family: 'Pacifico', cursive;
+    font-size: 14px; /* Reduce the font size */
     text-align: center;
 }
-
 
 /* Links */
 #index a {
@@ -133,89 +134,90 @@ body {
     color: #f5f5dc; /* Cream color for links */
     font-weight: bold;
     transition: color 0.3s;
-    padding: 5px 10px; /* Add padding around the links */
+    padding: 3px 7px; /* Reduce padding around the links */
     border-radius: 5px; /* Optional: add rounded corners */
 }
 
 /* Links hover */
 #index a:hover {
-    color: #b22222;
+    color: #5d1e20;
     background-color: rgba(255, 255, 255, 0.2); /* Add a light background on hover */
 }
 
-/* Pages inside the diary */
+/* Prevent index and pages from scrolling individually */
 .pages {
     flex: 3;
-    display: flex;
-    flex-direction: column;
     padding: 20px;
-    background-color: #a0522d; /* Beige coffee color */
+    background-color: #5d1e20;
+    overflow: hidden; /* Prevent scroll inside the pages */
 }
-
 /* Individual pages */
 .page {
     display: none;
     flex: 1;
     background-color: #f5f5dc; /* Coffee beige color for the pages */
-    border: 1px solid #a0522d; /* Light brown border */
     background-image: linear-gradient(transparent 95%, rgba(0, 0, 0, 0.1)); /* Add faded lines */
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     padding: 20px;
 }
 
-
-#index h1,
-#index li,
-#index a {
-    font-family: 'Pacifico', cursive; /* Set Pacifico font for these elements */
-}
-
 .left-page,
 .right-page {
     position: relative;
     flex: 1;
-    padding: 20px;
-    border: 1px solid #a0522d;
+    padding: 10px; /* Reduce padding */
+    border: 1px solid #5d1e20;
     background: #f5f5dc; /* Coffee beige color */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     font-family: 'Pacifico', cursive; /* Set Pacifico font for the left and right pages */
-    background-image: repeating-linear-gradient(
+    font-size: 16px; /* Reduce the font size */
+    background-image: linear-gradient(
         to bottom,
-        transparent,
-        transparent 20px,
-        rgba(169, 169, 169, 0.2) 20px, /* Faded grey color */
-        rgba(169, 169, 169, 0.2) 22px
-    ); /* Dotted lines effect */
+        rgba(0, 0, 0, 0.1) 1px,
+        transparent 1px
+    ); /* Solid faded lines */
     background-size: 100% 30px; /* Spacing between lines */
 }
 
-.left-page {
-    text-align: left;
+
+/* Center align the links */
+.left-page ul,
+.right-page ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center links horizontally */
 }
 
-.right-page {
-    text-align: right;
+.left-page li,
+.right-page li {
+    margin: 5px 0; /* Reduced margin to fit more items */
+    text-align: center;
 }
 
+/* Navigation button */
 .nav-button {
     display: inline-block;
     margin-top: 20px;
     padding: 10px 15px;
-    background-color: #a0522d;
+    background-color: #5d1e20;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     text-decoration: none;
     transition: background-color 0.3s;
-    font-family: 'Pacifico', cursive; /* Apply Pacifico font to buttons */
+    font-family: 'Pacifico', cursive;
 }
 
 .nav-button:hover {
-    background-color: #b22222;
+    background-color: #5d1e20;
 }
 
+/* Polaroid styles */
 .polaroid {
     position: relative;
     display: inline-block;
@@ -232,7 +234,7 @@ body {
 .timer {
     font-size: 14px;
     color: #555;
-    font-family: 'Pacifico', cursive; /* Apply Pacifico font to timer */
+    font-family: 'Pacifico', cursive;
 }
 
 .sticky-note {
@@ -245,5 +247,5 @@ body {
     width: 140px;
     font-size: 12px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    font-family: 'Pacifico', cursive; /* Apply Pacifico font to sticky notes */
+    font-family: 'Pacifico', cursive;
 }
