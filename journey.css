@@ -393,9 +393,10 @@ body {
 }
 
 .timer {
-    font-size: 14px;
+    padding: 3px;
+    font-size: 10px;
     color: #555;
-    font-family: 'Pacifico', cursive;
+    font-family: 'Arial', cursive;
 }
 
 .sticky-note {
