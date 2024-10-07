@@ -6,9 +6,23 @@
     <link rel="stylesheet" href="journey.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 </head>
+
 <body>
+            <!-- Audio Controls -->
+            <div class="audio-controls">
+                <button id="muteButton">🔊</button>
+                <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="1">
+            </div>
+    
+            <!-- Add the audio element -->
+            <audio id="backgroundAudio" autoplay loop>
+                <source src="audio/pluto.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+
     <div class="background">
         <img src="images/moments.gif" alt="Background GIF">
     </div>
@@ -26,29 +40,29 @@
                     <div class="left-page"> 
                         <h1>Journal Index</h1>
                         <ul>
-                            <li><a href="#page1" onclick="showPage(0)">Screenshot 1</a></li>
-                            <li><a href="#page2" onclick="showPage(1)">Screenshot 2</a></li>
-                            <li><a href="#page3" onclick="showPage(2)">Screenshot 3</a></li>
-                            <li><a href="#page4" onclick="showPage(3)">Screenshot 4</a></li>
-                            <li><a href="#page5" onclick="showPage(4)">Screenshot 5</a></li>
-                            <li><a href="#page6" onclick="showPage(5)">Screenshot 6</a></li>
-                            <li><a href="#page7" onclick="showPage(6)">Screenshot 7</a></li>
-                            <li><a href="#page8" onclick="showPage(7)">Screenshot 8</a></li>
-                            <li><a href="#page9" onclick="showPage(8)">Screenshot 9</a></li>
+                            <li><a href="#page1" onclick="showPage(1)">{The First Time You Called Me Cute}</a></li>
+                            <li><a href="#page2" onclick="showPage(2)">Screenshot 2</a></li>
+                            <li><a href="#page3" onclick="showPage(3)">Screenshot 3</a></li>
+                            <li><a href="#page4" onclick="showPage(4)">Screenshot 4</a></li>
+                            <li><a href="#page5" onclick="showPage(5)">Screenshot 5</a></li>
+                            <li><a href="#page6" onclick="showPage(6)">Screenshot 6</a></li>
+                            <li><a href="#page7" onclick="showPage(7)">Screenshot 7</a></li>
+                            <li><a href="#page8" onclick="showPage(8)">Screenshot 8</a></li>
+                            <li><a href="#page9" onclick="showPage(9)">Screenshot 9</a></li>
                         </ul>
                     </div>
                     <div class="divider"></div>
                     <div class="right-page">
                         <ul>
-                            <li><a href="#page10" onclick="showPage(9)">Screenshot 10</a></li>
-                            <li><a href="#page11" onclick="showPage(10)">Screenshot 11</a></li>
-                            <li><a href="#page12" onclick="showPage(11)">Screenshot 12</a></li>
-                            <li><a href="#page13" onclick="showPage(12)">Screenshot 13</a></li>
-                            <li><a href="#page14" onclick="showPage(13)">Screenshot 14</a></li>
-                            <li><a href="#page15" onclick="showPage(14)">Screenshot 15</a></li>
-                            <li><a href="#page16" onclick="showPage(15)">Screenshot 16</a></li>
-                            <li><a href="#page17" onclick="showPage(16)">Screenshot 17</a></li>
-                            <li><a href="#page18" onclick="showPage(17)">Screenshot 18</a></li>
+                            <li><a href="#page10" onclick="showPage(10)">Screenshot 10</a></li>
+                            <li><a href="#page11" onclick="showPage(11)">Screenshot 11</a></li>
+                            <li><a href="#page12" onclick="showPage(12)">Screenshot 12</a></li>
+                            <li><a href="#page13" onclick="showPage(13)">Screenshot 13</a></li>
+                            <li><a href="#page14" onclick="showPage(14)">Screenshot 14</a></li>
+                            <li><a href="#page15" onclick="showPage(15)">Screenshot 15</a></li>
+                            <li><a href="#page16" onclick="showPage(16)">Screenshot 16</a></li>
+                            <li><a href="#page17" onclick="showPage(17)">Screenshot 17</a></li>
+                            <li><a href="#page18" onclick="showPage(18)">Screenshot 18</a></li>
                         </ul>
                     </div>
                 </div>
@@ -57,140 +71,347 @@
                 <div class="page" id="page1" style="display: none;">
                     <div class="left-page">
                         <a class="nav-button" onclick="goBack(0)"> < Back</a>
+                        <div class="sticky-note tilted">You calling me cute still gets me all adbjakd :)</div>
                     </div>
+                    <div class="divider"></div>
                     <div class="right-page">
                         <h2>The First Time You Called Me Cute</h2>
-                        <p class="date">Date: 12 May 2024</p>
-                        <div class="polaroid">
-                            <img src="images/Fcute.png" alt="Screenshot 1">
+                        <p class="date">Date: 12 May 2024, 9:20AM</p>
+                        <div class="polaroid" onclick="zoomImage(this)">
+                            <img src="images/Fcute.png" alt="The First Time You Called Me Cute">
                             <div class="timer">Time ago: 12 May 2024, 9:20 AM</div>
-                            <div class="sticky-note">Comment: hehehe still gets me all adbjakd</div>
-                        </div>
-                        <a class="nav-button" onclick="goNext(0)">Next > </a>
-                    </div>
-                </div>
-    
-                <!-- Page 2 -->
-                <div class="page" id="page2" style="display: none;">
-                    <div class="left-page">
-                        <a class="nav-button" onclick="goBack(1)"> < Back</a>
-                    </div>
-                    <div class="right-page">
-                        <h2>Screenshot 2</h2>
-                        <p class="date">Date: YYYY-MM-DD</p>
-                        <div class="polaroid">
-                            <img src="screenshot2.jpg" alt="Screenshot 2">
-                            <div class="timer">Time ago: 1 week ago</div>
-                            <div class="sticky-note">Comment: What a fun adventure!</div>
-                        </div>
-                        <a class="nav-button" onclick="goNext(1)">Next > </a>
-                    </div>
-                </div>
-    
-                <!-- Page 3 -->
-                <div class="page" id="page3" style="display: none;">
-                    <div class="left-page">
-                        <a class="nav-button" onclick="goBack(2)"> < Back</a>
-                    </div>
-                    <div class="right-page">
-                        <h2>Screenshot 3</h2>
-                        <p class="date">Date: YYYY-MM-DD</p>
-                        <div class="polaroid">
-                            <img src="screenshot3.jpg" alt="Screenshot 3">
-                            <div class="timer">Time ago: 3 days ago</div>
-                            <div class="sticky-note">Comment: A lovely moment!</div>
+                            <div class="tooltip">Click to view image</div>
                         </div>
                         <a class="nav-button" onclick="goNext(2)">Next > </a>
                     </div>
                 </div>
-    
+
+                <!-- Page 2 -->
+                <div class="page" id="page2" style="display: none;">
+                    <div class="left-page">
+                        <a class="nav-button" onclick="goBack(1)"> < Back</a>
+                        <div class="sticky-note tilted">Comment: What a fun adventure!</div>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="right-page">
+                        <h2>Screenshot 2</h2>
+                        <p class="date">Date: YYYY-MM-DD</p>
+                        <div class="polaroid" onclick="zoomImage(this)">
+                            <img src="screenshot2.jpg" alt="Screenshot 2">
+                            <div class="timer">Time ago: 1 week ago</div>
+                            <div class="tooltip">Click to view image</div>
+                        </div>
+                        <a class="nav-button" onclick="goNext(1)">Next > </a>
+                    </div>
+                </div>
+
+                <!-- Page 3 -->
+                <div class="page" id="page3" style="display: none;">
+                    <div class="left-page">
+                        <a class="nav-button" onclick="goBack(2)"> < Back</a>
+                        <div class="sticky-note tilted">Comment: A lovely moment!</div>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="right-page">
+                        <h2>Screenshot 3</h2>
+                        <p class="date">Date: YYYY-MM-DD</p>
+                        <div class="polaroid" onclick="zoomImage(this)">
+                            <img src="screenshot3.jpg" alt="Screenshot 3">
+                            <div class="timer">Time ago: 3 days ago</div>
+                            <div class="tooltip">Click to view image</div>
+                        </div>
+                        <a class="nav-button" onclick="goNext(2)">Next > </a>
+                    </div>
+                </div>
+
                 <!-- Page 4 -->
                 <div class="page" id="page4" style="display: none;">
                     <div class="left-page">
                         <a class="nav-button" onclick="goBack(3)"> < Back</a>
+                        <div class="sticky-note tilted">Comment: So many laughs!</div>
                     </div>
+                    <div class="divider"></div>
                     <div class="right-page">
                         <h2>Screenshot 4</h2>
                         <p class="date">Date: YYYY-MM-DD</p>
-                        <div class="polaroid">
+                        <div class="polaroid" onclick="zoomImage(this)">
                             <img src="screenshot4.jpg" alt="Screenshot 4">
                             <div class="timer">Time ago: 2 months ago</div>
-                            <div class="sticky-note">Comment: So many laughs!</div>
+                            <div class="tooltip">Click to view image</div>
                         </div>
                         <a class="nav-button" onclick="goNext(3)">Next > </a>
                     </div>
                 </div>
-    
+
                 <!-- Page 5 -->
                 <div class="page" id="page5" style="display: none;">
                     <div class="left-page">
                         <a class="nav-button" onclick="goBack(4)"> < Back</a>
+                        <div class="sticky-note tilted">Comment: A memorable trip!</div>
                     </div>
+                    <div class="divider"></div>
                     <div class="right-page">
                         <h2>Screenshot 5</h2>
                         <p class="date">Date: YYYY-MM-DD</p>
-                        <div class="polaroid">
+                        <div class="polaroid" onclick="zoomImage(this)">
                             <img src="screenshot5.jpg" alt="Screenshot 5">
                             <div class="timer">Time ago: 1 month ago</div>
-                            <div class="sticky-note">Comment: A memorable trip!</div>
+                            <div class="tooltip">Click to view image</div>
                         </div>
                         <a class="nav-button" onclick="goNext(4)">Next > </a>
                     </div>
                 </div>
-    
+
                 <!-- Page 6 -->
                 <div class="page" id="page6" style="display: none;">
                     <div class="left-page">
                         <a class="nav-button" onclick="goBack(5)"> < Back</a>
+                        <div class="sticky-note tilted">Comment: Best day ever!</div>
                     </div>
+                    <div class="divider"></div>
                     <div class="right-page">
                         <h2>Screenshot 6</h2>
                         <p class="date">Date: YYYY-MM-DD</p>
-                        <div class="polaroid">
+                        <div class="polaroid" onclick="zoomImage(this)">
                             <img src="screenshot6.jpg" alt="Screenshot 6">
                             <div class="timer">Time ago: 3 weeks ago</div>
-                            <div class="sticky-note">Comment: Best day ever!</div>
+                            <div class="tooltip">Click to view image</div>
                         </div>
                         <a class="nav-button" onclick="goNext(5)">Next > </a>
                     </div>
                 </div>
-    
+
                 <!-- Page 7 -->
                 <div class="page" id="page7" style="display: none;">
                     <div class="left-page">
                         <a class="nav-button" onclick="goBack(6)"> < Back</a>
+                        <div class="sticky-note tilted">Comment: Unforgettable memory!</div>
                     </div>
+                    <div class="divider"></div>
                     <div class="right-page">
                         <h2>Screenshot 7</h2>
                         <p class="date">Date: YYYY-MM-DD</p>
-                        <div class="polaroid">
+                        <div class="polaroid" onclick="zoomImage(this)">
                             <img src="screenshot7.jpg" alt="Screenshot 7">
                             <div class="timer">Time ago: 4 days ago</div>
-                            <div class="sticky-note">Comment: Unforgettable memory!</div>
+                            <div class="tooltip">Click to view image</div>
                         </div>
                         <a class="nav-button" onclick="goNext(6)">Next > </a>
                     </div>
                 </div>
-    
+
                 <!-- Page 8 -->
                 <div class="page" id="page8" style="display: none;">
                     <div class="left-page">
                         <a class="nav-button" onclick="goBack(7)"> < Back</a>
+                        <div class="sticky-note tilted">Comment: So much fun!</div>
                     </div>
+                    <div class="divider"></div>
                     <div class="right-page">
                         <h2>Screenshot 8</h2>
                         <p class="date">Date: YYYY-MM-DD</p>
-                        <div class="polaroid">
+                        <div class="polaroid" onclick="zoomImage(this)">
                             <img src="screenshot8.jpg" alt="Screenshot 8">
                             <div class="timer">Time ago: 5 days ago</div>
-                            <div class="sticky-note">Comment: So much fun!</div>
+                            <div class="tooltip">Click to view image</div>
                         </div>
                         <a class="nav-button" onclick="goNext(7)">Next > </a>
                     </div>
                 </div>
+
+                <!-- Page 9 -->
+                <div class="page" id="page9" style="display: none;">
+                    <div class="left-page">
+                        <a class="nav-button" onclick="goBack(8)"> < Back</a>
+                        <div class="sticky-note">Comment: This one always makes me smile!</div>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="right-page">
+                        <h2>Screenshot 9</h2>
+                        <p class="date">Date: YYYY-MM-DD</p>
+                        <div class="polaroid" onclick="zoomImage(this)">
+                            <img src="screenshot9.jpg" alt="Screenshot 9">
+                            <div class="timer">Time ago: 2 weeks ago</div>
+                            <div class="tooltip">Click to view image</div>
+                        </div>
+                        <a class="nav-button" onclick="goNext(8)">Next > </a>
+                    </div>
+                </div>
+
+                <!-- Page 10 -->
+                <div class="page" id="page10" style="display: none;">
+                    <div class="left-page">
+                        <a class="nav-button" onclick="goBack(9)"> < Back</a>
+                        <div class="sticky-note">Comment: Our best moment together!</div>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="right-page">
+                        <h2>Screenshot 10</h2>
+                        <p class="date">Date: YYYY-MM-DD</p>
+                        <div class="polaroid" onclick="zoomImage(this)">
+                            <img src="screenshot10.jpg" alt="Screenshot 10">
+                            <div class="timer">Time ago: 4 weeks ago</div>
+                            <div class="tooltip">Click to view image</div>
+                        </div>
+                        <a class="nav-button" onclick="goNext(9)">Next > </a>
+                    </div>
+                </div>
+
+                <!-- Page 11 -->
+                <div class="page" id="page11" style="display: none;">
+                    <div class="left-page">
+                        <a class="nav-button" onclick="goBack(10)"> < Back</a>
+                        <div class="sticky-note">Comment: Still makes me laugh!</div>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="right-page">
+                        <h2>Screenshot 11</h2>
+                        <p class="date">Date: YYYY-MM-DD</p>
+                        <div class="polaroid" onclick="zoomImage(this)">
+                            <img src="screenshot11.jpg" alt="Screenshot 11">
+                            <div class="timer">Time ago: 6 days ago</div>
+                            <div class="tooltip">Click to view image</div>
+                        </div>
+                        <a class="nav-button" onclick="goNext(10)">Next > </a>
+                    </div>
+                </div>
+
+                <!-- Page 12 -->
+                <div class="page" id="page12" style="display: none;">
+                    <div class="left-page">
+                        <a class="nav-button" onclick="goBack(11)"> < Back</a>
+                        <div class="sticky-note">Comment: The cutest memory we made!</div>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="right-page">
+                        <h2>Screenshot 12</h2>
+                        <p class="date">Date: YYYY-MM-DD</p>
+                        <div class="polaroid" onclick="zoomImage(this)">
+                            <img src="screenshot12.jpg" alt="Screenshot 12">
+                            <div class="timer">Time ago: 8 days ago</div>
+                            <div class="tooltip">Click to view image</div>
+                        </div>
+                        <a class="nav-button" onclick="goNext(11)">Next > </a>
+                    </div>
+                </div>
+
+                <!-- Page 13 -->
+                <div class="page" id="page13" style="display: none;">
+                    <div class="left-page">
+                        <a class="nav-button" onclick="goBack(12)"> < Back</a>
+                        <div class="sticky-note">Comment: This was such a special day!</div>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="right-page">
+                        <h2>Screenshot 13</h2>
+                        <p class="date">Date: YYYY-MM-DD</p>
+                        <div class="polaroid" onclick="zoomImage(this)">
+                            <img src="screenshot13.jpg" alt="Screenshot 13">
+                            <div class="timer">Time ago: 1 month ago</div>
+                            <div class="tooltip">Click to view image</div>
+                        </div>
+                        <a class="nav-button" onclick="goNext(12)">Next > </a>
+                    </div>
+                </div>
+
+                <!-- Page 14 -->
+                <div class="page" id="page14" style="display: none;">
+                    <div class="left-page">
+                        <a class="nav-button" onclick="goBack(13)"> < Back</a>
+                        <div class="sticky-note">Comment: Can’t wait for more days like this!</div>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="right-page">
+                        <h2>Screenshot 14</h2>
+                        <p class="date">Date: YYYY-MM-DD</p>
+                        <div class="polaroid" onclick="zoomImage(this)">
+                            <img src="screenshot14.jpg" alt="Screenshot 14">
+                            <div class="timer">Time ago: 5 days ago</div>
+                            <div class="tooltip">Click to view image</div>
+                        </div>
+                        <a class="nav-button" onclick="goNext(13)">Next > </a>
+                    </div>
+                </div>
+
+                <!-- Page 15 -->
+                <div class="page" id="page15" style="display: none;">
+                    <div class="left-page">
+                        <a class="nav-button" onclick="goBack(14)"> < Back</a>
+                        <div class="sticky-note">Comment: Always cherished this moment.</div>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="right-page">
+                        <h2>Screenshot 15</h2>
+                        <p class="date">Date: YYYY-MM-DD</p>
+                        <div class="polaroid" onclick="zoomImage(this)">
+                            <img src="screenshot15.jpg" alt="Screenshot 15">
+                            <div class="timer">Time ago: 3 days ago</div>
+                            <div class="tooltip">Click to view image</div>
+                        </div>
+                        <a class="nav-button" onclick="goNext(14)">Next > </a>
+                    </div>
+                </div>
+
+                <!-- Page 16 -->
+                <div class="page" id="page16" style="display: none;">
+                    <div class="left-page">
+                        <a class="nav-button" onclick="goBack(15)"> < Back</a>
+                        <div class="sticky-note">Comment: The sweetest surprise ever!</div>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="right-page">
+                        <h2>Screenshot 16</h2>
+                        <p class="date">Date: YYYY-MM-DD</p>
+                        <div class="polaroid" onclick="zoomImage(this)">
+                            <img src="screenshot16.jpg" alt="Screenshot 16">
+                            <div class="timer">Time ago: 2 months ago</div>
+                            <div class="tooltip">Click to view image</div>
+                        </div>
+                        <a class="nav-button" onclick="goNext(15)">Next > </a>
+                    </div>
+                </div>
+
+                <!-- Page 17 -->
+                <div class="page" id="page17" style="display: none;">
+                    <div class="left-page">
+                        <a class="nav-button" onclick="goBack(16)"> < Back</a>
+                        <div class="sticky-note">Comment: This one is so special to me!</div>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="right-page">
+                        <h2>Screenshot 17</h2>
+                        <p class="date">Date: YYYY-MM-DD</p>
+                        <div class="polaroid" onclick="zoomImage(this)">
+                            <img src="screenshot17.jpg" alt="Screenshot 17">
+                            <div class="timer">Time ago: 3 weeks ago</div>
+                            <div class="tooltip">Click to view image</div>
+                        </div>
+                        <a class="nav-button" onclick="goNext(16)">Next > </a>
+                    </div>
+                </div>
+
+                <!-- Page 18 -->
+                <div class="page" id="page18" style="display: none;">
+                    <div class="left-page">
+                        <a class="nav-button" onclick="goBack(17)"> < Back</a>
+                        <div class="sticky-note">Comment: Every day is better with you!</div>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="right-page">
+                        <h2>Screenshot 18</h2>
+                        <p class="date">Date: YYYY-MM-DD</p>
+                        <div class="polaroid" onclick="zoomImage(this)">
+                            <img src="screenshot18.jpg" alt="Screenshot 18">
+                            <div class="timer">Time ago: 1 week ago</div>
+                            <div class="tooltip">Click to view image</div>
+                        </div>
+                    </div>
+                        
+                        <div id="zoomedContainer" class="zoomed-container" onclick="closeZoom()">
+                            <img id="zoomedImage" src="" alt="Zoomed Image">
+                    </div>    
+                </div>
             </div>
-        </div>
-    </div>
 
     <script>
         let currentIndex = 0;
@@ -228,6 +449,55 @@
                 showPage(currentIndex);
             }
         }
+
+                // Get the audio element and controls
+        const backgroundAudio = document.getElementById('backgroundAudio');
+        const muteButton = document.getElementById('muteButton');
+        const volumeSlider = document.getElementById('volumeSlider');
+
+        // Add a user interaction to allow audio playback (fix for autoplay restrictions)
+        document.body.addEventListener('click', () => {
+            if (backgroundAudio.paused) {
+                backgroundAudio.play();
+            }
+        });
+
+        // Function to toggle mute
+        muteButton.addEventListener('click', () => {
+            backgroundAudio.muted = !backgroundAudio.muted; // Toggle mute state
+            muteButton.textContent = backgroundAudio.muted ? '🔇' : '🔊'; // Change button icon based on mute state
+        });
+
+        // Function to change volume based on slider value
+        volumeSlider.addEventListener('input', (e) => {
+            const volumeValue = parseFloat(e.target.value); // Ensure the value is a float
+            backgroundAudio.volume = volumeValue; // Set audio volume
+        });
+
+        // Set initial volume based on the slider's value
+        backgroundAudio.volume = volumeSlider.value; // This ensures the audio volume matches the slider on page load
+
+        function zoomImage(element) {
+    // Create a zoom overlay
+    const zoomOverlay = document.createElement('div');
+    zoomOverlay.className = 'zoom-overlay';
+    
+    // Create an image element for the zoomed image
+    const zoomedImage = document.createElement('img');
+    zoomedImage.src = element.querySelector('img').src; // Get the source of the clicked image
+    zoomedImage.alt = element.querySelector('img').alt;
+    
+    // Add the zoomed image to the overlay
+    zoomOverlay.appendChild(zoomedImage);
+    
+    // Add the overlay to the body
+    document.body.appendChild(zoomOverlay);
+    
+    // Close the zoomed image when clicking on the overlay
+    zoomOverlay.addEventListener('click', function() {
+        document.body.removeChild(zoomOverlay);
+    });
+}
     </script>
 </body>
 </html>
