@@ -35,11 +35,10 @@
     
     <div id="open-diary" style="display: none;">
         <div class="diary-buttons">
-            <button id="back-button" onclick="goBack()">Back</button>
-            <button id="next-button" onclick="goNext()">Next</button>
+            <button id="back-button" onclick="goBack()">< Back</button>
         <div class="diary">
             <div class="pages">
-                <div class="page" id="index-page">
+                <div class="page" id="index-page" style="display: flex;">
                     <div class="left-page"> 
                         <h1>Journal Index</h1>
                         <ul>
@@ -387,35 +386,41 @@
         </div>
 
     <script>
-        let currentIndex = 0;
+        let currentIndex = 0; // Set initial index to 0
         const pages = document.querySelectorAll('.page');
 
         function openDiary() {
             document.getElementById('closed-diary').style.display = 'none';
             document.getElementById('open-diary').style.display = 'flex';
+            currentIndex = 0; // Make sure to set currentIndex to 0 on open
             showPage(currentIndex); // Show the index page initially
         }
 
         function showPage(index) {
+            currentIndex = index; // Update current index when showing a page
             pages.forEach((page, i) => {
                 page.style.display = (i === index) ? 'flex' : 'none';
             });
-            updateNavigation();
-        }
-
-        function goNext() {
-            if (currentIndex < pages.length - 1) {
-                currentIndex++;
-                showPage(currentIndex);
-            }
         }
 
         function goBack() {
-            if (currentIndex > 0) {
-                currentIndex--;
+            if (currentIndex === 0) {
+                closeDiary(); // Close the diary if on the index page
+            } else {
+                currentIndex = 0; // Go back to the index page
                 showPage(currentIndex);
             }
         }
+
+        function closeDiary() {
+            document.getElementById('closed-diary').style.display = 'block';
+            document.getElementById('open-diary').style.display = 'none';
+        }
+
+
+        // Event listeners for opening the diary
+        document.getElementById('some-open-button').addEventListener('click', openDiary);
+
 
         function updateNavigation() {
             // Disable Back button if on the first page
